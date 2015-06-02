@@ -15,11 +15,9 @@ import javafx.scene.input.KeyCodeCombination;
  * @author manuel.mauky
  */
 class ScalingHelper {
-	
-	
 	private IntegerProperty minFontSize = new SimpleIntegerProperty(6);
 	private IntegerProperty maxFontSize = new SimpleIntegerProperty(40);
-	private IntegerProperty defaultFontSize = new SimpleIntegerProperty(12);
+	IntegerProperty defaultFontSize = new SimpleIntegerProperty(12);
 	
 	private IntegerProperty fontSize = new SimpleIntegerProperty(defaultFontSize.get());
 	
@@ -64,6 +62,16 @@ class ScalingHelper {
 			
 			if (newValue.intValue() > maxFontSize.get()) {
 				fontSize.set(maxFontSize.get());
+			}
+		});
+		
+		defaultFontSize.addListener((observable, oldValue, newValue) -> {
+			if (newValue.intValue() < minFontSize.get()) {
+				defaultFontSize.set(oldValue.intValue());
+			}
+
+			if (newValue.intValue() > maxFontSize.get()) {
+				defaultFontSize.set(newValue.intValue());
 			}
 		});
 	}

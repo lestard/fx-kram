@@ -30,7 +30,7 @@ public class ScaleTestApp extends Application {
                 new KeyCodeCombination(KeyCode.MINUS, KeyCombination.SHORTCUT_DOWN), 
                 new KeyCodeCombination(KeyCode.DIGIT0, KeyCombination.SHORTCUT_DOWN));
         
-        
+        Scaling.detectDefaultScaling();
 
         final URL resource = this.getClass().getResource("DpiScaleTest.fxml");
         FXMLLoader fxmlLoader = new FXMLLoader(resource);

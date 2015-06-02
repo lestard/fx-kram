@@ -3,6 +3,7 @@ package eu.lestard.fxkram.usability;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
+import javafx.stage.Screen;
 
 /**
  * @author manuel.mauky
@@ -15,6 +16,31 @@ public class Scaling {
         scaleImpl.enableScaling(scene);
     }
 
+    /**
+     * Tries to detect the best default scaling parameter based on
+     * the systems DPI settings.
+     */
+    public static void detectDefaultScaling() {
+        final double dpi = Screen.getPrimary().getDpi();
+        System.out.println("dpi:"+ dpi);
+        if (dpi < 120) {
+            scaleImpl.defaultFontSize.setValue(12);
+        } else if (dpi < 180) {
+            scaleImpl.defaultFontSize.setValue(16);
+        } else if (dpi < 240) {
+            scaleImpl.defaultFontSize.setValue(20);
+        } else {
+            scaleImpl.defaultFontSize.setValue(24);
+        }
+    }
+
+    /**
+     * Change the default font size. Initially the default size is 12. 
+     */
+    public static void setDefaultScaling(int fontSize) {
+        scaleImpl.defaultFontSize.setValue(fontSize);
+    }
+    
     
     /**
      * Scale up one step.
