@@ -7,13 +7,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 
-public class DpiScaleTestApp extends Application {
+public class ScaleTestApp extends Application {
 
     public static void main(String[] args) {
         launch(args);
@@ -22,7 +21,7 @@ public class DpiScaleTestApp extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         
-        DpiScale.enableMouseWheel(KeyCode.CONTROL);
+        Scaling.enableMouseWheel(KeyCode.CONTROL);
         
         
 
@@ -32,7 +31,7 @@ public class DpiScaleTestApp extends Application {
         
         final Scene scene = new Scene(root);
         
-        DpiScale.enableScaling(scene);
+        Scaling.enableScaling(scene);
         
         
         primaryStage.setScene(scene);
