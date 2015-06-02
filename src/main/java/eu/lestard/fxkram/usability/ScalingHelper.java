@@ -9,24 +9,28 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
 
 /**
  * @author manuel.mauky
  */
 class ScalingHelper {
 	
-	private static final int DEFAULT_FONT_SIZE = 12;
 	
 	private IntegerProperty minFontSize = new SimpleIntegerProperty(6);
 	private IntegerProperty maxFontSize = new SimpleIntegerProperty(40);
+	private IntegerProperty defaultFontSize = new SimpleIntegerProperty(12);
 	
-	private IntegerProperty fontSize = new SimpleIntegerProperty(DEFAULT_FONT_SIZE);
+	private IntegerProperty fontSize = new SimpleIntegerProperty(defaultFontSize.get());
 	
 	
 	private boolean mouseWheelScalingActive = false;
+	private boolean keyboardScalingActive = false;
 	
 	private MouseWheelScalingHelper mouseWheelScalingHelper = new MouseWheelScalingHelper(this::scaleUp,
 			this::scaleDown);
+	
+	private KeyboardScalingHelper keyboardScalingHelper = new KeyboardScalingHelper(this::scaleUp, this::scaleDown, this::scaleToDefault);
 	
 	private final URL tempStylesheetPath;
 	
@@ -70,6 +74,10 @@ class ScalingHelper {
 		
 		if (mouseWheelScalingActive) {
 			mouseWheelScalingHelper.initScene(scene);
+		}
+		
+		if(keyboardScalingActive) {
+			keyboardScalingHelper.initScene(scene);
 		}
 	}
 	
@@ -157,6 +165,10 @@ class ScalingHelper {
 		}
 	}
 	
+	void scaleToDefault() {
+		fontSize.set(defaultFontSize.get());
+	}
+	
 	void enableMouseWheel(KeyCode... modifier) {
 		mouseWheelScalingActive = true;
 		mouseWheelScalingHelper.enable(modifier);
@@ -164,5 +176,15 @@ class ScalingHelper {
 	
 	void disableMouseWheel() {
 		mouseWheelScalingActive = false;
+	}
+	
+	
+	void enableKeyboardScaling(KeyCodeCombination scaleUp, KeyCodeCombination scaleDown, KeyCodeCombination scaleToDefault) {
+		keyboardScalingActive = true;
+		keyboardScalingHelper.enable(scaleUp, scaleDown, scaleToDefault);
+	}
+	
+	void disableKeyboardScaling() {
+		keyboardScalingActive = false;
 	}
 }

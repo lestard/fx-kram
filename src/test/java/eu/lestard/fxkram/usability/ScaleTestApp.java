@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,7 +23,12 @@ public class ScaleTestApp extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         
-        Scaling.enableMouseWheel(KeyCode.CONTROL);
+        Scaling.enableMouseWheel(KeyCode.SHORTCUT);
+        
+        Scaling.enableKeyboard(
+                new KeyCodeCombination(KeyCode.PLUS, KeyCombination.SHORTCUT_DOWN), 
+                new KeyCodeCombination(KeyCode.MINUS, KeyCombination.SHORTCUT_DOWN), 
+                new KeyCodeCombination(KeyCode.DIGIT0, KeyCombination.SHORTCUT_DOWN));
         
         
 

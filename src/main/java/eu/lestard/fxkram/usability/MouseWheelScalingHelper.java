@@ -19,8 +19,8 @@ class MouseWheelScalingHelper {
 
     private Map<KeyCode, Predicate<ScrollEvent>> mouseWheelScrollPredicates = new HashMap<>();
     
-    private Runnable scaleUpFunction;
-    private Runnable scaleDownFunction;
+    private final Runnable scaleUpFunction;
+    private final Runnable scaleDownFunction;
 
     MouseWheelScalingHelper(final Runnable scaleUpFunction, final Runnable scaleDownFunction) {
         this.scaleUpFunction = scaleUpFunction;

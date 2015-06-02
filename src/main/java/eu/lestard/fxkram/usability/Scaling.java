@@ -2,6 +2,7 @@ package eu.lestard.fxkram.usability;
 
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
 
 /**
  * @author manuel.mauky
@@ -56,4 +57,17 @@ public class Scaling {
     public static void disableMouseWheel() {
         scaleImpl.disableMouseWheel();
     }
+    
+    public static void enableKeyboard(KeyCodeCombination scaleUp, KeyCodeCombination scaleDown, KeyCodeCombination scaleToDefault) {
+        scaleImpl.enableKeyboardScaling(scaleUp, scaleDown, scaleToDefault);
+    }
+    
+    public static void enableKeyboard(KeyCodeCombination scaleUp, KeyCodeCombination scaleDown) {
+        scaleImpl.enableKeyboardScaling(scaleUp, scaleDown, null);
+    }
+    
+    public static void disableKeyboard() {
+        scaleImpl.disableKeyboardScaling();
+    }
+    
 }
