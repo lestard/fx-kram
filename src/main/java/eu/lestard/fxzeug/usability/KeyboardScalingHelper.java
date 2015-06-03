@@ -1,4 +1,4 @@
-package eu.lestard.fxkram.usability;
+package eu.lestard.fxzeug.usability;
 
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCodeCombination;

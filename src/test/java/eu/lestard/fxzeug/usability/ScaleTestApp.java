@@ -1,4 +1,4 @@
-package eu.lestard.fxkram.usability;/**
+package eu.lestard.fxzeug.usability;/**
  * @author manuel.mauky
  */
 

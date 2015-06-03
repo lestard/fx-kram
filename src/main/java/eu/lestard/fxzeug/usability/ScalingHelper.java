@@ -1,4 +1,4 @@
-package eu.lestard.fxkram.usability;
+package eu.lestard.fxzeug.usability;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -105,7 +105,7 @@ class ScalingHelper {
 	
 	private URL createTempStyleSheetFile() {
 		try {
-			final File cssfile = File.createTempFile("fx-kram-scaling", ".css");
+			final File cssfile = File.createTempFile("fx-zeug-scaling", ".css");
 			cssfile.deleteOnExit();
 			
 			try (FileOutputStream out = new FileOutputStream(cssfile)) {
@@ -148,7 +148,7 @@ class ScalingHelper {
 	}
 	
 	String getStyleClass(int fontSize) {
-		return "fx_kram_scaling_" + fontSize;
+		return "fx_zeug_scaling_" + fontSize;
 	}
 	
 	String getCurrentStyleClass() {
