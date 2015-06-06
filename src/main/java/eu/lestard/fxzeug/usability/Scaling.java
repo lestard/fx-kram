@@ -13,8 +13,8 @@ public class Scaling {
     
     private static final ScalingHelper scaleImpl = new ScalingHelper();
     
-    public static void enableScaling(final Scene scene) {
-        scaleImpl.enableScaling(scene);
+    public static void initScene(final Scene scene) {
+        scaleImpl.initScene(scene);
     }
 
     public static ReadOnlyIntegerProperty fontSizeProperty() {
@@ -32,7 +32,6 @@ public class Scaling {
      */
     public static void detectDefaultScaling() {
         final double dpi = Screen.getPrimary().getDpi();
-        System.out.println("dpi:"+ dpi);
         if (dpi < 120) {
             scaleImpl.defaultFontSize.setValue(12);
         } else if (dpi < 180) {

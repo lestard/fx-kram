@@ -77,7 +77,7 @@ class ScalingHelper {
 	}
 	
 	
-	void enableScaling(final Scene scene) {
+	void initScene(final Scene scene) {
 		initStyleSheet(scene);
 		
 		if (mouseWheelScalingActive) {

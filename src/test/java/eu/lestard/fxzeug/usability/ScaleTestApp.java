@@ -38,7 +38,7 @@ public class ScaleTestApp extends Application {
         
         final Scene scene = new Scene(root, 1000, 700);
         
-        Scaling.enableScaling(scene);
+        Scaling.initScene(scene);
         
         
         primaryStage.setScene(scene);
