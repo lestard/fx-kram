@@ -32,6 +32,7 @@ public class Scaling {
         } else {
             scaleImpl.defaultFontSize.setValue(24);
         }
+        scaleImpl.scaleToDefault();
     }
 
     /**

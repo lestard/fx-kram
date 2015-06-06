@@ -36,12 +36,13 @@ public class ScaleTestApp extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(resource);
         final Parent root = fxmlLoader.load();
         
-        final Scene scene = new Scene(root);
+        final Scene scene = new Scene(root, 1000, 700);
         
         Scaling.enableScaling(scene);
         
         
         primaryStage.setScene(scene);
+        primaryStage.sizeToScene();
         primaryStage.show();
     }
 }
