@@ -1,5 +1,6 @@
 package eu.lestard.fxzeug.usability;
 
+import javafx.beans.property.ReadOnlyIntegerProperty;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
@@ -16,9 +17,18 @@ public class Scaling {
         scaleImpl.enableScaling(scene);
     }
 
+    public static ReadOnlyIntegerProperty fontSizeProperty() {
+        return scaleImpl.fontSize.getReadOnlyProperty();
+    }
+
+    public static int getFontSize() {
+        return fontSizeProperty().get();
+    }
+
+
     /**
      * Tries to detect the best default scaling parameter based on
-     * the systems DPI settings.
+     * the systems DPI settings. Sets the {@link #setDefaultScaling(int)} accordingly.
      */
     public static void detectDefaultScaling() {
         final double dpi = Screen.getPrimary().getDpi();
@@ -33,6 +43,10 @@ public class Scaling {
             scaleImpl.defaultFontSize.setValue(24);
         }
         scaleImpl.scaleToDefault();
+    }
+
+    public static int getDefaultScaling() {
+        return scaleImpl.defaultFontSize.get();
     }
 
     /**

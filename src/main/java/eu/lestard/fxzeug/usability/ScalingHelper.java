@@ -1,15 +1,16 @@
 package eu.lestard.fxzeug.usability;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.net.URL;
-
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ReadOnlyIntegerWrapper;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.net.URL;
 
 /**
  * @author manuel.mauky
@@ -19,9 +20,8 @@ class ScalingHelper {
 	private IntegerProperty maxFontSize = new SimpleIntegerProperty(40);
 	IntegerProperty defaultFontSize = new SimpleIntegerProperty(12);
 	
-	private IntegerProperty fontSize = new SimpleIntegerProperty(defaultFontSize.get());
-	
-	
+	ReadOnlyIntegerWrapper fontSize = new ReadOnlyIntegerWrapper(defaultFontSize.get());
+
 	private boolean mouseWheelScalingActive = false;
 	private boolean keyboardScalingActive = false;
 	
